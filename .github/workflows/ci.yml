@@ -41,6 +41,9 @@ jobs:
         with:
           cache-provider: basic
 
+      - name: Lint backend
+        run: ./gradlew ktlintCheck --no-daemon
+
       - name: Run backend tests
         run: ./gradlew test --no-daemon
 

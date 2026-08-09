@@ -9,4 +9,3 @@ class FleetLabApplication
 fun main(args: Array<String>) {
     runApplication<FleetLabApplication>(*args)
 }
-

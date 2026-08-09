@@ -45,9 +45,12 @@ Run backend tests and start the API:
 
 ```bash
 cd backend
+./gradlew ktlintCheck
 ./gradlew test
 ./gradlew bootRun
 ```
+
+Fix Kotlin formatting issues automatically with `./gradlew ktlintFormat`.
 
 When Compose is using a custom port, start the backend with the same value:
 
