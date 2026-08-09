@@ -1,0 +1,22 @@
+name: fleetlab
+
+services:
+  db:
+    image: postgis/postgis:17-3.5
+    environment:
+      POSTGRES_DB: fleetlab
+      POSTGRES_USER: fleetlab
+      POSTGRES_PASSWORD: fleetlab
+    ports:
+      - "${FLEETLAB_DB_PORT:-5432}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fleetlab -d fleetlab"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    volumes:
+      - fleetlab-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  fleetlab-postgres-data:

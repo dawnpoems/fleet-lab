@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: ${FLEETLAB_DB_URL:jdbc:postgresql://localhost:${FLEETLAB_DB_PORT:5432}/fleetlab}
+    username: ${FLEETLAB_DB_USERNAME:fleetlab}
+    password: ${FLEETLAB_DB_PASSWORD:fleetlab}
