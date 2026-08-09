@@ -172,6 +172,8 @@ If a required check cannot run, state the exact reason and what remains unverifi
 
 - Update `README.md` when setup commands, prerequisites, or the supported development workflow change.
 - Record architecture decisions only when a meaningful decision and tradeoff exist.
+- Record accepted domain and architecture decisions in sequentially numbered files under `docs/decisions/`, and update its decision list.
+- Keep decision records concise. Include the context, decision, benefits, tradeoffs, alternatives, deferred scope, and revisit conditions; prefer tables for comparisons.
 - Explain why a decision was made, the alternatives considered, and when it should be revisited.
 - Keep documentation synchronized with executable behavior; delete or update stale claims.
 
