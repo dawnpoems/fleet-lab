@@ -23,3 +23,4 @@ FleetLab의 도메인 모델, 공개 계약, 영속성, 아키텍처, 의존성 
 
 - [001. Map의 Edge를 방향성 있는 이동 관계로 모델링](001-directed-edge.md) — 채택
 - [002. 생성된 Map을 immutable하게 유지](002-immutable-map.md) — 채택
+- [003. Edge 거리를 명시적인 meter 값으로 표현](003-explicit-edge-distance.md) — 채택
