@@ -28,3 +28,5 @@ FleetLab의 도메인 모델, 공개 계약, 영속성, 아키텍처, 의존성 
 - [006. NavigationMap 생성 시 graph 불변조건을 검증](006-navigation-map-invariants.md) — 채택
 - [007. Node 좌표를 meter 단위의 2D 값으로 표현](007-node-coordinate.md) — 채택
 - [008. NavigationMap을 검증된 factory method로 생성](008-navigation-map-creation.md) — 채택
+- [009. Path를 시작 Node와 Edge 목록으로 표현](009-path-representation.md) — 채택
+- [010. PathPlanner가 명시적인 탐색 결과를 반환](010-path-planner-contract.md) — 채택
