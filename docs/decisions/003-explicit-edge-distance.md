@@ -45,13 +45,6 @@ Edge 생성 시 `distanceMeters: Double`을 명시적으로 입력한다. 값은
 | `Long` millimeter | 거리 합을 정수로 정확하게 계산한다. | 초기 좌표·속도 계산과 입력이 번거로워진다. |
 | `Distance` value object | 단위와 유효성을 타입으로 보호한다. | 초기에는 사용처가 Edge 하나뿐이라 추가 타입과 연산이 과하다. |
 
-## 아직 결정하지 않은 사항
-
-- Node 좌표의 단위와 타입
-- 거리 외의 시간·혼잡 cost 정책
-- `Double` 동률 판단과 deterministic tie-breaking 규칙
-- `Distance` value object 도입 시점
-
 ## 다시 검토할 조건
 
 - 단위 혼동이나 중복 유효성 검사가 실제로 발생한 경우

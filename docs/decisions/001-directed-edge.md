@@ -40,14 +40,6 @@ FleetLab의 Map은 path finding, dispatch, traffic control 실험의 입력이�
 | Undirected Edge | 양방향 통로 입력이 간결하다. | 일방통행, 방향별 비용, 한 방향 차단에 별도 규칙이 필요하다. |
 | 방향 속성을 가진 단일 Edge | 하나의 Edge로 세 방향 상태를 표현한다. | 방향별 속성과 runtime state가 늘면 조건 분기가 복잡해진다. |
 
-## 아직 결정하지 않은 사항
-
-- Map의 immutable 여부
-- Edge 거리의 타입, 단위와 계산 방식
-- Node와 Edge의 ID 타입
-- parallel edge 허용 여부
-- 물리적 통로와 충돌 영역 모델
-
 ## 다시 검토할 조건
 
 - traffic control에서 반대 방향 Edge의 물리적 점유 관계가 필요해진 경우

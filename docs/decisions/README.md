@@ -16,7 +16,6 @@ FleetLab의 도메인 모델, 공개 계약, 영속성, 아키텍처, 의존성 
 - 선택의 이유와 장점
 - 감수하는 단점과 후속 영향
 - 검토한 대안
-- 이번에 결정하지 않은 범위
 - 결정을 다시 검토할 조건
 
 ## 결정 목록
@@ -25,3 +24,4 @@ FleetLab의 도메인 모델, 공개 계약, 영속성, 아키텍처, 의존성 
 - [002. 생성된 Map을 immutable하게 유지](002-immutable-map.md) — 채택
 - [003. Edge 거리를 명시적인 meter 값으로 표현](003-explicit-edge-distance.md) — 채택
 - [004. NavigationMap이 Node와 Edge를 소유](004-navigation-map-aggregate.md) — 채택
+- [005. Node와 Edge에 UUID 기반 전용 ID를 사용](005-node-edge-identifiers.md) — 채택

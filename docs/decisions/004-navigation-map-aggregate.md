@@ -54,14 +54,6 @@ Node와 Edge는 `NavigationMap` 밖에서 독립적인 생명주기를 갖지 �
 | `Graph` | 자료구조 관점에서 정확하다. | 물류 이동 공간이라는 도메인 의미가 약하다. |
 | Node·Edge 독립 관리 | 개별 저장과 수정이 쉽다. | 검증 책임이 흩어지고 불완전한 graph가 생기기 쉽다. |
 
-## 아직 결정하지 않은 사항
-
-- `NavigationMap`, Node, Edge의 ID 타입
-- Node 좌표의 타입과 단위
-- 세부 graph 불변조건
-- 생성 factory와 조회 API의 구체적인 형태
-- Map identity와 revision 정책
-
 ## 다시 검토할 조건
 
 - Node나 Edge가 Map과 독립적인 생명주기를 가져야 하는 실제 요구가 생긴 경우

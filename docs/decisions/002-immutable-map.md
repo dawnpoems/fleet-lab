@@ -44,13 +44,6 @@
 | Mutable Map | Node와 Edge를 직접 추가·삭제하기 쉽다. | Run 간 상태 누출, 재현성 저하, 탐색 중 변경 위험이 생긴다. |
 | Run마다 Map 복사 | Run 상태를 물리적으로 격리할 수 있다. | 정적 구조와 runtime 상태가 섞이고 불필요한 복사와 관리 비용이 생긴다. |
 
-## 아직 결정하지 않은 사항
-
-- Map 생성 factory와 편집 모델의 구체적인 API
-- Map ID와 revision 정책
-- Run별 runtime state의 타입과 구조
-- Map 영속성과 API 표현
-
 ## 다시 검토할 조건
 
 - 큰 Map의 revision 생성 비용이 실제 병목으로 확인된 경우
