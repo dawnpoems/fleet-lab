@@ -108,11 +108,11 @@ When the owner explicitly says `커밋해` or otherwise asks for a commit, inspe
 
 For every backend production-code change, use separate Red and Green commits:
 
-1. **Red commit:** add or change the test first without changing production code. Run the focused test and confirm that it fails for the intended behavioral reason, not because of a syntax, setup, or environment error. Stop at this boundary and propose a `test` commit message.
+1. **Red commit:** add or change the test before implementing the behavior under test. When a brand-new production type does not yet exist and a typed test cannot compile, the same Red unit may include only the minimal production scaffold required for compilation, such as the agreed type, constructor, property, and method signatures. Do not implement the tested invariant, algorithm, or any speculative API in that scaffold. Run the focused test and confirm that it compiles, executes, and fails at the intended assertion rather than because of a syntax, setup, environment, or unresolved-symbol error. Stop at this boundary and propose a `test` commit message.
 2. **Green commit:** after the Red commit boundary is accepted, write the minimum production code needed to pass. Run the focused test and the relevant backend suite. Stop only when they pass, then propose a `feat` or `fix` commit message.
 3. **Refactor commit:** perform optional structural cleanup separately while keeping all tests green. Do not hide refactoring inside the Green commit unless it is strictly required for the minimal implementation.
 
-Do not write production code in the Red unit. Do not weaken, delete, or rewrite a valid failing test merely to make the Green unit pass. For documentation, build configuration, or other changes where a behavioral test is genuinely not applicable, explain the verification approach before editing instead of fabricating a test.
+Do not change production behavior in the Red unit. The compile-only scaffold for a brand-new type is the sole exception and must be committed together with its failing test; after the type exists, later Red units remain test-only. Do not weaken, delete, or rewrite a valid failing test merely to make the Green unit pass. For documentation, build configuration, or other changes where a behavioral test is genuinely not applicable, explain the verification approach before editing instead of fabricating a test.
 
 At the end of every work unit, provide a Korean Conventional Commit message in this exact shape:
 
