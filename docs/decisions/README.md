@@ -31,3 +31,4 @@ FleetLab의 도메인 모델, 공개 계약, 영속성, 아키텍처, 의존성 
 - [009. Path를 시작 Node와 Edge 목록으로 표현](009-path-representation.md) — 채택
 - [010. PathPlanner가 명시적인 탐색 결과를 반환](010-path-planner-contract.md) — 채택
 - [011. Dijkstra의 동일 비용 경로를 Edge ID 순서로 결정](011-dijkstra-deterministic-tie-breaking.md) — 채택
+- [012. NavigationMap ID가 하나의 immutable snapshot을 식별](012-navigation-map-snapshot-identity.md) — 채택
