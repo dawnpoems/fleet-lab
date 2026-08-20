@@ -7,14 +7,16 @@ import kotlin.test.assertFailsWith
 class CoordinateTest {
     @Test
     fun `accepts positive zero and negative values`() {
-        val coordinate = Coordinate(
-            xMeters = 12.5,
-            yMeters = -3.75,
-        )
-        val origin = Coordinate(
-            xMeters = 0.0,
-            yMeters = 0.0,
-        )
+        val coordinate =
+            Coordinate(
+                xMeters = 12.5,
+                yMeters = -3.75,
+            )
+        val origin =
+            Coordinate(
+                xMeters = 0.0,
+                yMeters = 0.0,
+            )
 
         assertEquals(12.5, coordinate.xMeters)
         assertEquals(-3.75, coordinate.yMeters)

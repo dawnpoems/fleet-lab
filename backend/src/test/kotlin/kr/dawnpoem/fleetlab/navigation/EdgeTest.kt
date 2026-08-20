@@ -12,12 +12,13 @@ class EdgeTest {
 
     @Test
     fun `accepts distinct nodes and a positive finite distance`() {
-        val edge = Edge(
-            id = edgeId,
-            from = from,
-            to = to,
-            distanceMeters = 12.5,
-        )
+        val edge =
+            Edge(
+                id = edgeId,
+                from = from,
+                to = to,
+                distanceMeters = 12.5,
+            )
 
         assertEquals(edgeId, edge.id)
         assertEquals(from, edge.from)
