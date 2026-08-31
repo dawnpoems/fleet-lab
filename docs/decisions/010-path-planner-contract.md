@@ -33,6 +33,9 @@ sealed interface PathPlanningResult {
 | 목적지에 도달할 수 없음 | `Unreachable` |
 | 출발 Node가 Map에 없음 | `IllegalArgumentException` |
 | 목적지 Node가 Map에 없음 | `IllegalArgumentException` |
+| 목적지는 연결되어 있지만 모든 경로의 누적 거리가 `Double` 범위를 넘음 | `ArithmeticException` |
+
+누적 거리가 overflow한 후보는 유한한 후보보다 우선하지 않는다. 목적지까지 유한한 거리의 경로가 하나라도 있으면 그중 최단 경로를 반환한다. Graph상 목적지에 도달할 수 있지만 모든 경로의 누적 거리가 유한한 `Double`로 표현될 수 없을 때만 `ArithmeticException`을 발생시킨다.
 
 구체 알고리즘 구현체는 `PathPlanner`를 구현하며 외부에서 선택해 주입한다. 초기 계약은 정적 Map 탐색만 다루고 SimulationRun의 Edge 차단·점유 상태를 포함하지 않는다.
 
@@ -43,6 +46,7 @@ sealed interface PathPlanningResult {
 | 교체 가능성 | SimulationEngine이 구체 path finding 알고리즘에 의존하지 않는다. |
 | 결과 의미 | 경로 발견과 도달 불가능을 타입으로 구분한다. |
 | 안전성 | 호출부가 모든 정상 결과를 처리하도록 컴파일러가 돕는다. |
+| 수치 정확성 | Graph 단절과 거리 표현 범위 초과를 서로 다른 실패로 구분한다. |
 | 재현성 | Planner가 mutable state를 가지지 않아 같은 입력을 독립적으로 처리한다. |
 | 단순성 | 실제 모델인 `NavigationMap`을 사용하고 일반 Graph 추상화를 추가하지 않는다. |
 
@@ -53,6 +57,7 @@ sealed interface PathPlanningResult {
 | 결과 타입이 추가된다. | 정상적인 두 결과를 명확히 구분하는 domain 타입으로 사용한다. |
 | Run 중 통행 상태를 아직 반영할 수 없다. | Runtime state를 설계할 때 실제 요구에 맞는 탐색 입력을 추가한다. |
 | 없는 Node는 결과 타입이 아닌 예외로 처리된다. | 도달 불가능과 잘못된 호출을 의도적으로 구분한다. |
+| 극단적으로 큰 거리에서는 수치 예외가 발생할 수 있다. | 정상적인 도달 불가와 구분하고 거리 표현을 변경할 때 재검토한다. |
 
 ## 검토한 대안
 
@@ -60,6 +65,8 @@ sealed interface PathPlanningResult {
 | --- | --- | --- |
 | Nullable `Path` | 별도 결과 타입이 없다. | `null`의 의미가 타입에 드러나지 않고 처리를 빠뜨리기 쉽다. |
 | 경로가 없으면 예외 | 반환 타입이 단순하다. | 도달 불가능은 정상적인 탐색 결과다. |
+| 거리 overflow를 `Unreachable`로 반환 | 결과 타입이 늘어나지 않는다. | Graph상 연결된 목적지를 도달 불가로 잘못 표현한다. |
+| 거리 overflow 결과 타입 추가 | 실패 원인이 반환 타입에 명시된다. | 비정상적인 수치 한계를 모든 정상 호출자가 처리해야 한다. |
 | 알고리즘 이름을 인자로 전달 | 하나의 함수에서 알고리즘을 선택할 수 있다. | 구현체 선택 분기가 Planner 내부에 쌓인다. |
 | 일반 Graph interface 입력 | 여러 graph 구현을 받을 수 있다. | 현재 존재하지 않는 변형을 위한 추상화다. |
 
