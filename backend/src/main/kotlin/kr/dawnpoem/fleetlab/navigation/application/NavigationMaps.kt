@@ -8,11 +8,14 @@ import kr.dawnpoem.fleetlab.navigation.NavigationMapId
 import kr.dawnpoem.fleetlab.navigation.NavigationMapName
 import kr.dawnpoem.fleetlab.navigation.Node
 import kr.dawnpoem.fleetlab.navigation.NodeId
+import kr.dawnpoem.fleetlab.navigation.PathPlanner
+import kr.dawnpoem.fleetlab.navigation.PathPlanningResult
 import kr.dawnpoem.fleetlab.navigation.port.NavigationMapRepository
 import java.util.UUID
 
 class NavigationMaps(
     private val repository: NavigationMapRepository,
+    private val planner: PathPlanner,
 ) {
     fun create(command: CreateMapCommand): NavigationMap {
         require(command.nodes.all { it.key.isNotBlank() }) { "Node keys must not be blank" }
@@ -44,6 +47,12 @@ class NavigationMaps(
     }
 
     fun get(id: NavigationMapId): NavigationMap = repository.findById(id) ?: throw MapNotFoundException(id)
+
+    fun findPath(
+        id: NavigationMapId,
+        start: NodeId,
+        destination: NodeId,
+    ): PathPlanningResult = planner.findPath(get(id), start, destination)
 }
 
 class MapNotFoundException(

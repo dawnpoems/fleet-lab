@@ -1,6 +1,7 @@
 package kr.dawnpoem.fleetlab.navigation.adapter.web
 
 import kr.dawnpoem.fleetlab.navigation.NavigationMapId
+import kr.dawnpoem.fleetlab.navigation.NodeId
 import kr.dawnpoem.fleetlab.navigation.application.CreateMapCommand
 import kr.dawnpoem.fleetlab.navigation.application.EdgeInput
 import kr.dawnpoem.fleetlab.navigation.application.NavigationMaps
@@ -39,7 +40,18 @@ class NavigationMapController(
     fun get(
         @PathVariable mapId: UUID,
     ): MapResponse = maps.get(NavigationMapId(mapId)).toResponse()
+
+    @PostMapping("/{mapId}/paths")
+    fun findPath(
+        @PathVariable mapId: UUID,
+        @RequestBody request: PathRequest,
+    ): PathResponse = maps.findPath(NavigationMapId(mapId), NodeId(request.start), NodeId(request.destination)).toResponse()
 }
+
+data class PathRequest(
+    val start: UUID,
+    val destination: UUID,
+)
 
 data class CreateMapRequest(
     val name: String,
