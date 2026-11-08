@@ -34,3 +34,4 @@ FleetLab의 도메인 모델, 공개 계약, 영속성, 아키텍처, 의존성 
 - [012. NavigationMap ID가 하나의 immutable snapshot을 식별](012-navigation-map-snapshot-identity.md) — 채택
 - [013. NavigationMap만 필수 사용자 표시 이름을 가짐](013-navigation-map-name.md) — 채택
 - [014. NavigationMap snapshot을 정규화하여 원자적으로 저장](014-navigation-map-persistence.md) — 채택
+- [015. Map HTTP API와 서버 발급 식별자](015-navigation-map-api.md) — 채택
