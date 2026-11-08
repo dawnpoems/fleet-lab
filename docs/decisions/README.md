@@ -33,3 +33,4 @@ FleetLab의 도메인 모델, 공개 계약, 영속성, 아키텍처, 의존성 
 - [011. Dijkstra의 동일 비용 경로를 Edge ID 순서로 결정](011-dijkstra-deterministic-tie-breaking.md) — 채택
 - [012. NavigationMap ID가 하나의 immutable snapshot을 식별](012-navigation-map-snapshot-identity.md) — 채택
 - [013. NavigationMap만 필수 사용자 표시 이름을 가짐](013-navigation-map-name.md) — 채택
+- [014. NavigationMap snapshot을 정규화하여 원자적으로 저장](014-navigation-map-persistence.md) — 채택
