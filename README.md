@@ -76,6 +76,8 @@ docker compose down
 
 ## Roadmap
 
+Map 생성·조회 및 경로 탐색 API 사용법은 [Map API 예제](docs/map-api.md)를 참고하세요.
+
 - Map graph model
 - Robot model
 - Path finding
