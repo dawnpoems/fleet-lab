@@ -1,2 +1,4 @@
-databaseChangeLog: []
-
+databaseChangeLog:
+  - include:
+      file: 001-create-map.yaml
+      relativeToChangelogFile: true
